@@ -1,0 +1,27 @@
+[apply]
+  whitespace = nowarn
+
+[color]
+  branch = auto
+  diff = auto
+  status = auto
+
+[core]
+  editor = /usr/bin/vim
+  excludesfile = ~/.gitignore_global
+
+[credential]
+	helper = cache --timeout 604800
+
+[help]
+  autocorrect = 1
+
+[merge]
+  tool = vimdiff
+
+[push]
+  default = current
+
+[user]
+  name = Julien Rostand
+  email =

@@ -1,0 +1,7 @@
+.bundle
+.rspec
+.ruby-version
+.vagrant/
+
+config/database.yml
+vendor/bundle
