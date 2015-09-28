@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 
 require 'fileutils'
-require 'pry'
 
 ignores = %w(bin)
 files = Dir['*'] - ignores
@@ -16,5 +15,5 @@ files.each do |file|
   end
 
   puts "\e[1;32mLink\e[0m #{path}"
-  FileUtils.ln_sf "~/.#{file}", file
+  FileUtils.ln_sf File.expand_path(file), path
 end
