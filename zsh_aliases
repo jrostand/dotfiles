@@ -1,6 +1,9 @@
 alias ..='cd ..'
 alias ls='ls --color=auto'
 
+# Mac version of 'ls' using coreutils
+# alias ls='gls --color=auto'
+
 alias exeunt='killall tmux'
 alias ll='ls -l'
 alias qq='exit'
