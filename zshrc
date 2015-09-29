@@ -16,19 +16,20 @@ setopt share_history
 
 # PATH
 export PATH="/usr/local/heroku/bin:$PATH"
-export PATH="$PATH:$HOME/.shoes/federales"
 
 # Miscellaneous variables
 export TERM="xterm-256color"
 export ANSIBLE_NOCOWS=1
-export JAVA_HOME="/usr/lib/jvm/java-1.7.0-openjdk-amd64"
 
+# Mac version of dircolors (coreutils)
+# [[ -e ~/.lscolors ]] && eval $(gdircolors ~/.lscolors)
+# Linux version (default)
 [[ -e ~/.lscolors ]] && eval $(dircolors ~/.lscolors)
 
 ssh-add 2> /dev/null
 
 if [ -d ~/.nvm ]; then
-  export NVM_DIR="/home/julien/.nvm"
+  export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 fi
 
