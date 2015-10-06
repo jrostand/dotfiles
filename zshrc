@@ -1,5 +1,7 @@
 source ~/.zsh_aliases
 
+autoload -U compinit && compinit
+
 setopt prompt_subst
 
 # Shell history
