@@ -34,6 +34,7 @@ alias gc='git commit'
 alias gclean="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 alias gco='git checkout'
 alias gd='git diff'
+alias gds='git diff --staged'
 alias gdw='git diff --color-words'
 alias gf='git fetch'
 alias gl="git log --graph --all --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'"
@@ -52,6 +53,7 @@ alias hrl='heroku logs -t'
 # Ruby
 
 alias be='bundle exec'
+alias bip='bundle install --path vendor/bundle -j4'
 
 alias rrh='rbenv rehash'
 

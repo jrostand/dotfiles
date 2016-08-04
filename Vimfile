@@ -1,53 +1,53 @@
-Plugin 'VundleVim/Vundle.vim'
+Plug 'chriskempson/base16-vim'
 
-Plugin 'chriskempson/base16-vim'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
-Plugin 'scrooloose/nerdtree'
+Plug 'tpope/vim-fugitive'
 
-Plugin 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
-Plugin 'tpope/vim-rails'
+Plug 'tpope/vim-rails'
 
-Plugin 'tpope/vim-bundler'
+Plug 'tpope/vim-bundler'
 
-Plugin 'kchmck/vim-coffee-script'
+Plug 'thoughtbot/vim-rspec'
 
-Plugin 'thoughtbot/vim-rspec'
+Plug 'tpope/vim-dispatch'
 
-Plugin 'tpope/vim-dispatch'
+Plug 'triglav/vim-visual-increment'
 
-Plugin 'pangloss/vim-javascript'
+Plug 'tpope/vim-surround'
 
-Plugin 'briancollins/vim-jst'
+Plug 'kien/ctrlp.vim'
 
-Plugin 'slim-template/vim-slim'
+Plug 'MarcWeber/vim-addon-mw-utils'
 
-Plugin 'triglav/vim-visual-increment'
+Plug 'tomtom/tlib_vim'
 
-Plugin 'elixir-lang/vim-elixir'
+Plug 'garbas/vim-snipmate'
 
-Plugin 'MarcWeber/vim-addon-mw-utils'
+Plug 'cespare/vim-toml'
 
-Plugin 'tomtom/tlib_vim'
+Plug 'chase/vim-ansible-yaml'
 
-Plugin 'garbas/vim-snipmate'
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 
-Plugin 'jnwhiteh/vim-golang'
+Plug 'slim-template/vim-slim', { 'for': 'slim' }
 
-Plugin 'airblade/vim-gitgutter'
+Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
 
-Plugin 'wting/rust.vim'
+Plug 'jnwhiteh/vim-golang', { 'for': 'go' }
 
-Plugin 'digitaltoad/vim-jade'
+Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
 
-Plugin 'cespare/vim-toml'
+Plug 'groenewege/vim-less', { 'for': 'less' }
 
-Plugin 'derekwyatt/vim-scala'
+Plug 'mxw/vim-jsx', { 'for': 'jsx' }
 
-Plugin 'chase/vim-ansible-yaml'
+Plug 'kylef/apiblueprint.vim', { 'for': 'apiblueprint' }
 
-Plugin 'groenewege/vim-less'
+Plug 'wting/rust.vim', { 'for': 'rust' }
 
-Plugin 'tpope/vim-surround'
+Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 
-Plugin 'kien/ctrlp.vim'
+Plug 'lambdatoast/elm.vim', { 'for': 'elm' }

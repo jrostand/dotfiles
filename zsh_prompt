@@ -1,0 +1,44 @@
+_git_branch_and_sha() {
+  local branch="" sha='' fmtbranch=''
+
+  branch=$(git symbolic-ref -q HEAD 2>/dev/null | sed s/refs\\/heads\\///)
+
+  if [ -z $branch ]; then
+    echo '%F{red}detached%f'
+    return 0
+  fi
+
+  case $branch in
+    master)
+      fmtbranch="%K{red}%F{black}$branch%f%k";;
+    *)
+      fmtbranch="%F{blue}$branch%f";;
+  esac
+
+  sha=$(git rev-parse --short --quiet HEAD)
+
+  if [ ! $sha ]; then
+    sha='%F{red}ref?%f'
+  fi
+
+  echo "$fmtbranch %F{yellow}$sha%f"
+}
+
+_git_status_char() {
+  local git_status="$(git status 2>/dev/null)"
+
+  if [[ $git_status =~ 'nothing to commit' ]]; then
+    echo "%K{blue}  %k"
+  elif [[ $git_status =~ 'to be committed' ]]; then
+    echo "%K{white}  %k"
+  else
+    echo "%K{red}  %k"
+  fi
+}
+
+_git_prompt() {
+  git rev-parse --git-dir >/dev/null 2>&1 && echo "± $(_git_branch_and_sha) $(_git_status_char)"
+}
+
+export PROMPT='%F{green}%n%f@%F{magenta}%m%f :: %F{cyan}%~%f $(_git_prompt)
+> '

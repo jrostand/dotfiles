@@ -1,11 +1,9 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
-
-call vundle#begin()
-so ~/.Vimfile " Load our Vundle plugins from an external file
-call vundle#end()
+call plug#begin('~/.vim/plugged')
+source ~/.Vimfile " Load our Plug plugins from an external file
+call plug#end()
 
 filetype plugin indent on
 
@@ -72,14 +70,14 @@ set laststatus=2
 
 " " Custom file types
 
-au BufNewFile,BufRead *.rabl set filetype=ruby    " RABL
-au BufNewFile,BufRead *.md set filetype=markdown  " Markdown
-au BufNewFile,BufRead *.haml-js set filetype=haml " Hamlbars
-au BufNewFile,BufRead Guardfile set filetype=ruby " Guardfile
-au BufNewFile,BufRead *.yajl set filetype=ruby    " Yajl
+au BufNewFile,BufRead *.apimd set filetype=apiblueprint	" API Blueprint
+au BufNewFile,BufRead *.md set filetype=markdown        " Markdown
+au BufNewFile,BufRead Guardfile set filetype=ruby       " Guardfile
+au BufNewFile,BufRead *.yajl set filetype=ruby          " Yajl
 
 " Local filetype overrides
 
+autocmd Filetype apiblueprint setlocal noet ts=4 sw=4 sts=4
 autocmd Filetype make setlocal noet ts=4 sw=4 sts=4
 
 " Mapping
@@ -102,6 +100,9 @@ nnoremap <Leader>B :Gblame<CR>
 nnoremap <Leader>D :Gdiff<CR>
 nnoremap <Leader>W :%s/\s\+$//g<CR>
 
+" Rebind syntax-aware completion to C-Tab
+inoremap <C-Tab> <C-x><C-o>
+
 " RSpec integration
 nnoremap <Leader>sa :call RunAllSpecs()<CR>
 nnoremap <Leader>sf :call RunCurrentSpecFile()<CR>
@@ -114,6 +115,7 @@ nnoremap <Leader>v "+gP
 
 " For quick additions to vimrc
 nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
+
 if has("gui_running")
   nnoremap <Leader>S :source $MYGVIMRC<CR>
 else
@@ -121,4 +123,7 @@ else
 endif
 
 " vim-rspec stuff
-let g:rspec_command = "Dispatch bin/rspec {spec}"
+let g:rspec_command = "Dispatch bundle exec rspec {spec}"
+
+" vim-racer
+let g:racer_cmd = $HOME . "/bin/racer"
