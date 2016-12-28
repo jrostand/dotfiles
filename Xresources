@@ -1,0 +1,59 @@
+#define base00 #181818
+#define base01 #282828
+#define base02 #383838
+#define base03 #585858
+#define base04 #b8b8b8
+#define base05 #d8d8d8
+#define base06 #e8e8e8
+#define base07 #f8f8f8
+#define base08 #ab4642
+#define base09 #dc9656
+#define base0A #f7ca88
+#define base0B #a1b56c
+#define base0C #86c1b9
+#define base0D #7cafc2
+#define base0E #ba8baf
+#define base0F #a16946
+
+! Rofi
+rofi.lines: 5
+rofi.modi: window,run
+
+!! Theme
+rofi.bw: 0
+rofi.color-enabled: true
+rofi.font: Source Code Pro Bold 10
+rofi.hide-scrollbar: true
+
+!! Colors           bg       fg       bgalt    hlbg     hlfg
+rofi.color-normal:  base01,  base05,  base02,  base05,  base01
+rofi.color-active:  base01,  base0D,  base02,  base0D,  base01
+rofi.color-urgent:  base01,  base08,  base02,  base08,  base01
+
+!! Rofi window      bg       border
+rofi.color-window:  base00,  base00
+
+*.faceName: Hack Regular:size=11
+*.termName: xterm-256color
+
+*.foreground:   base05
+*.background:   base00
+*.cursorColor:  base05
+
+*.color0:       base00
+*.color1:       base08
+*.color2:       base0B
+*.color3:       base0A
+*.color4:       base0D
+*.color5:       base0E
+*.color6:       base0C
+*.color7:       base05
+
+*.color8:       base03
+*.color9:       base08
+*.color10:      base0B
+*.color11:      base0A
+*.color12:      base0D
+*.color13:      base0E
+*.color14:      base0C
+*.color15:      base07
