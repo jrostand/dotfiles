@@ -22,7 +22,7 @@ rofi.modi: window,run
 !! Theme
 rofi.bw: 0
 rofi.color-enabled: true
-rofi.font: Source Code Pro Bold 10
+rofi.font: Hack Bold 11
 rofi.hide-scrollbar: true
 
 !! Colors           bg       fg       bgalt    hlbg     hlfg
