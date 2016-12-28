@@ -1,6 +1,6 @@
 set background=dark
-colorscheme base16-default
+colorscheme base16-default-dark
 
 set go-=T
 
-set guifont=Source\ Code\ Pro\ Medium\ 11
+set guifont=Hack\ Regular\ 11

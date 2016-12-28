@@ -55,7 +55,7 @@ set smartcase
 
 set modeline
 set background=dark
-colorscheme base16-default
+colorscheme base16-default-dark
 syntax on
 filetype on
 filetype indent on
