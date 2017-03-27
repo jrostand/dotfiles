@@ -18,7 +18,9 @@ Plug 'triglav/vim-visual-increment'
 
 Plug 'tpope/vim-surround'
 
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
+
+Plug 'mileszs/ack.vim'
 
 Plug 'MarcWeber/vim-addon-mw-utils'
 
@@ -29,6 +31,8 @@ Plug 'garbas/vim-snipmate'
 Plug 'cespare/vim-toml'
 
 Plug 'chase/vim-ansible-yaml'
+
+Plug 'chikamichi/mediawiki.vim'
 
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 

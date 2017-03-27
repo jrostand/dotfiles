@@ -1,6 +1,8 @@
 source ~/.zsh_aliases
 source ~/.zsh_prompt
 
+fpath+=~/.zfunc
+
 autoload -U compinit && compinit
 
 setopt prompt_subst
@@ -18,6 +20,7 @@ setopt no_hist_beep
 setopt share_history
 
 # Miscellaneous variables
+export EDITOR=/usr/bin/vim
 export GOPATH="$HOME/go"
 #export TERM="xterm-256color"
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -26,7 +29,7 @@ export ANSIBLE_NOCOWS=1
 export RUST_SRC_PATH="$HOME/.racer/rustsrc"
 
 # PATH
-export PATH="$PATH:/usr/local/go/bin:$GOPATH/bin"
+export PATH="$HOME/bin:$HOME/.cargo/bin:$PATH:/usr/local/go/bin:$GOPATH/bin"
 
 # Mac version of dircolors (coreutils)
 # [[ -e ~/.lscolors ]] && eval $(gdircolors ~/.lscolors)

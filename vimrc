@@ -30,6 +30,7 @@ set scrolloff=3
 set showcmd
 set t_Co=256
 set wm=10
+set lazyredraw
 
 " " Tabs
 
@@ -60,25 +61,27 @@ syntax on
 filetype on
 filetype indent on
 
-" " Uglify trailing whitespace
-autocmd Syntax * syn match ExtraWhitespace /\s\+$| \+\ze\t/
-highlight ExtraWhitespace ctermbg=red guibg=red
-
 " " Statusline
 
 set laststatus=2
 
-" " Custom file types
+augroup cofiggroup
+  " " Uglify trailing whitespace
+  autocmd Syntax * syn match ExtraWhitespace /\s\+$| \+\ze\t/
+  highlight ExtraWhitespace ctermbg=red guibg=red
 
-au BufNewFile,BufRead *.apimd set filetype=apiblueprint	" API Blueprint
-au BufNewFile,BufRead *.md set filetype=markdown        " Markdown
-au BufNewFile,BufRead Guardfile set filetype=ruby       " Guardfile
-au BufNewFile,BufRead *.yajl set filetype=ruby          " Yajl
+  " " Custom file types
 
-" Local filetype overrides
+  au BufNewFile,BufRead *.apimd set filetype=apiblueprint	" API Blueprint
+  au BufNewFile,BufRead *.md set filetype=markdown        " Markdown
+  au BufNewFile,BufRead Guardfile set filetype=ruby       " Guardfile
+  au BufNewFile,BufRead *.yajl set filetype=ruby          " Yajl
 
-autocmd Filetype apiblueprint setlocal noet ts=4 sw=4 sts=4
-autocmd Filetype make setlocal noet ts=4 sw=4 sts=4
+  " Local filetype overrides
+
+  autocmd Filetype apiblueprint setlocal noet ts=4 sw=4 sts=4
+  autocmd Filetype make setlocal noet ts=4 sw=4 sts=4
+augroup END
 
 " Mapping
 
@@ -96,6 +99,7 @@ nnoremap <Leader>f :CtrlP<CR>
 nnoremap <Leader>h :nohlsearch<CR>
 nnoremap <Leader>s :sort<CR>
 nnoremap <Leader>t :NERDTree<CR>
+nnoremap <Leader>A ggvG$h
 nnoremap <Leader>B :Gblame<CR>
 nnoremap <Leader>D :Gdiff<CR>
 nnoremap <Leader>W :%s/\s\+$//g<CR>
@@ -122,8 +126,21 @@ else
   nnoremap <Leader>S :source $MYVIMRC<CR>
 endif
 
-" vim-rspec stuff
+" vim-rspec
 let g:rspec_command = "Dispatch bundle exec rspec {spec}"
 
 " vim-racer
 let g:racer_cmd = $HOME . "/bin/racer"
+
+" ack.vim
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
+" ctrlp
+let g:ctrlp_match_window = 'bottom,order:ttb'
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_working_path_mode = 0
+if executable('ag')
+  let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+endif

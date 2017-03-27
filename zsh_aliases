@@ -1,11 +1,13 @@
 alias ..='cd ..'
+alias grep='grep --color=auto'
 alias ls='ls --color=auto'
 
 # Mac version of 'ls' using coreutils
 # alias ls='gls --color=auto'
 
+alias docker='sudo docker'
 alias exeunt='killall tmux'
-alias ll='ls -l'
+alias ll='ls -lh'
 alias qq='exit'
 alias resource='source ~/.bashrc'
 alias tunnel='ngrok start'
@@ -43,12 +45,6 @@ alias gp='git push'
 alias gs='clear; git status'
 alias gu='git pull'
 alias stash='git stash'
-
-# Heroku toolkit
-
-alias hr='heroku'
-alias hrc='heroku run console'
-alias hrl='heroku logs -t'
 
 # Ruby
 
