@@ -18,6 +18,8 @@ Plug 'triglav/vim-visual-increment'
 
 Plug 'tpope/vim-surround'
 
+Plug 'godlygeek/tabular'
+
 Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'mileszs/ack.vim'
@@ -28,11 +30,13 @@ Plug 'tomtom/tlib_vim'
 
 Plug 'garbas/vim-snipmate'
 
-Plug 'cespare/vim-toml'
+Plug 'mbbill/undotree'
 
-Plug 'chase/vim-ansible-yaml'
+Plug 'cespare/vim-toml', { 'for': 'toml' }
 
-Plug 'chikamichi/mediawiki.vim'
+Plug 'chase/vim-ansible-yaml', { 'for': 'yaml' }
+
+Plug 'chikamichi/mediawiki.vim', { 'for': 'mediawiki' }
 
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 

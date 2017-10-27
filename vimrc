@@ -61,6 +61,17 @@ syntax on
 filetype on
 filetype indent on
 
+" " Persistent undo
+
+let vimDir = '$HOME/.vim'
+
+if has('persistent_undo')
+    let myUndoDir = expand(vimDir . '/undo')
+    call system('mkdir ' . myUndoDir)
+    let &undodir = myUndoDir
+    set undofile
+endif
+
 " " Statusline
 
 set laststatus=2
@@ -75,7 +86,6 @@ augroup cofiggroup
   au BufNewFile,BufRead *.apimd set filetype=apiblueprint	" API Blueprint
   au BufNewFile,BufRead *.md set filetype=markdown        " Markdown
   au BufNewFile,BufRead Guardfile set filetype=ruby       " Guardfile
-  au BufNewFile,BufRead *.yajl set filetype=ruby          " Yajl
 
   " Local filetype overrides
 
@@ -99,13 +109,15 @@ nnoremap <Leader>f :CtrlP<CR>
 nnoremap <Leader>h :nohlsearch<CR>
 nnoremap <Leader>s :sort<CR>
 nnoremap <Leader>t :NERDTree<CR>
-nnoremap <Leader>A ggvG$h
 nnoremap <Leader>B :Gblame<CR>
 nnoremap <Leader>D :Gdiff<CR>
 nnoremap <Leader>W :%s/\s\+$//g<CR>
 
 " Rebind syntax-aware completion to C-Tab
 inoremap <C-Tab> <C-x><C-o>
+
+" Undotree
+nnoremap <Leader>u :UndotreeToggle<CR>
 
 " RSpec integration
 nnoremap <Leader>sa :call RunAllSpecs()<CR>
@@ -119,6 +131,7 @@ nnoremap <Leader>v "+gP
 
 " For quick additions to vimrc
 nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
+nnoremap <Leader>eV :vsplit $HOME/.Vimfile<CR>
 
 if has("gui_running")
   nnoremap <Leader>S :source $MYGVIMRC<CR>
