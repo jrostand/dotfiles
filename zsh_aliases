@@ -1,9 +1,13 @@
 alias ..='cd ..'
 alias grep='grep --color=auto'
-alias ls='ls --color=auto'
 
-# Mac version of 'ls' using coreutils
-# alias ls='gls --color=auto'
+if [[ $(uname) = 'Darwin' ]]; then
+  alias ls='gls --color=auto'
+else
+  alias ls='ls --color=auto'
+
+  alias ifconfig=echo 'I think you meant ip'
+fi
 
 alias docker='sudo docker'
 alias exeunt='killall tmux'
@@ -11,20 +15,14 @@ alias ll='ls -lh'
 alias qq='exit'
 alias resource='source ~/.bashrc'
 alias tunnel='ngrok start'
-alias vi='vim'
 
-# correct errors in usage
+if [[ $(which nvim) ]]; then
+  alias vi='nvim'
 
-alias ifconfig=_ifconfig
-alias mvim=_mvim
-
-_ifconfig() {
-  echo 'Use ip, you asshole'
-}
-
-_mvim() {
-  echo 'Use gvim, stupid'
-}
+  alias gvim=echo "Not with nvim, you don't"
+else
+  alias vi='vim'
+fi
 
 # Git
 
@@ -50,18 +48,6 @@ alias stash='git stash'
 
 alias be='bundle exec'
 alias bip='bundle install --path vendor/bundle -j4'
-
-alias rrh='rbenv rehash'
-
-# Rails
-
-alias dbreset='be rake db:drop:all db:create:all db:setup db:test:clone'
-alias dbfullreset='be rake db:drop:all db:create:all db:migrate db:seed db:test:clone'
-alias fm='bundle exec foreman start'
-alias migrate='be rake db:migrate db:test:clone'
-alias rlc='rails console'
-alias rlg='rails generate'
-alias rls='rails server'
 
 # Misc
 

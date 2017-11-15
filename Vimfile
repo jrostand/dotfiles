@@ -2,27 +2,19 @@ Plug 'chriskempson/base16-vim'
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
+Plug 'ctrlpvim/ctrlp.vim', { 'on': 'CtrlP' }
+
+Plug 'mileszs/ack.vim', { 'on': 'CtrlP' }
+
 Plug 'tpope/vim-fugitive'
 
 Plug 'airblade/vim-gitgutter'
-
-Plug 'tpope/vim-rails'
-
-Plug 'tpope/vim-bundler'
-
-Plug 'thoughtbot/vim-rspec'
-
-Plug 'tpope/vim-dispatch'
 
 Plug 'triglav/vim-visual-increment'
 
 Plug 'tpope/vim-surround'
 
-Plug 'godlygeek/tabular'
-
-Plug 'ctrlpvim/ctrlp.vim'
-
-Plug 'mileszs/ack.vim'
+Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
 
 Plug 'MarcWeber/vim-addon-mw-utils'
 
@@ -31,6 +23,12 @@ Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'
 
 Plug 'mbbill/undotree'
+
+" Syntax etc
+
+Plug 'tpope/vim-bundler'
+
+Plug 'tpope/vim-rails', { 'for': 'ruby' }
 
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 
@@ -59,3 +57,5 @@ Plug 'wting/rust.vim', { 'for': 'rust' }
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 
 Plug 'lambdatoast/elm.vim', { 'for': 'elm' }
+
+" vim:ft=vim

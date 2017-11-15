@@ -19,31 +19,54 @@ setopt hist_save_no_dups
 setopt no_hist_beep
 setopt share_history
 
-# Miscellaneous variables
-export EDITOR=/usr/bin/vim
-export GOPATH="$HOME/go"
-#export TERM="xterm-256color"
-export XDG_CONFIG_HOME="$HOME/.config"
-export ANSIBLE_NOCOWS=1
-
-export RUST_SRC_PATH="$HOME/.racer/rustsrc"
-
-# PATH
-export PATH="$HOME/bin:$HOME/.cargo/bin:$PATH:/usr/local/go/bin:$GOPATH/bin"
-
-# Mac version of dircolors (coreutils)
-# [[ -e ~/.lscolors ]] && eval $(gdircolors ~/.lscolors)
-# Linux version (default)
-[[ -e ~/.lscolors ]] && eval $(dircolors ~/.lscolors)
-
-ssh-add 2> /dev/null
-
-if [ -d ~/.nvm ]; then
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+# EDITOR
+if [[ $(which nvim) ]]; then
+  export EDITOR=$(which nvim)
+else
+  export EDITOR=$(which vim)
 fi
 
+# PATH
+export PATH="$HOME/bin:$PATH"
+
+# Miscellaneous variables
+export ANSIBLE_NOCOWS=1
+export XDG_CONFIG_HOME="$HOME/.config"
+
+# dircolors
+if [[ $(uname) = 'Darwin' ]]; then
+  [[ -e ~/.lscolors ]] && eval $(gdircolors ~/.lscolors)
+else
+  [[ -e ~/.lscolors ]] && eval $(dircolors ~/.lscolors)
+fi
+
+# golang
+if [[ $(which go) ]]; then
+  export GOPATH="$HOME/go"
+  export PATH="$PATH:/usr/local/go/bin:$GOPATH/bin"
+fi
+
+# nvm
+if [ -d ~/.nvm ]; then
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+fi
+
+# racer
+if [[ -d ~/.racer ]]; then
+  export RUST_SRC_PATH="$HOME/.racer/rustsrc"
+fi
+
+# rbenv
 if [ -d ~/.rbenv ]; then
   export PATH="$HOME/.rbenv/bin:$PATH"
   eval "$(rbenv init -)"
 fi
+
+# rust
+if [[ $(which rustc) ]]; then
+  export PATH="$HOME/.cargo/bin:$PATH"
+fi
+
+# ssh-add
+ssh-add 2> /dev/null

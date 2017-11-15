@@ -7,8 +7,8 @@ call plug#end()
 
 filetype plugin indent on
 
-if exists("$TMUX")
-  set term=screen-256color
+if exists("$TMUX") && has('nvim')
+  set termguicolors
 endif
 
 " Auto-embiggen the GVIM window
@@ -28,7 +28,6 @@ set noswapfile
 set nowrap
 set scrolloff=3
 set showcmd
-set t_Co=256
 set wm=10
 set lazyredraw
 
@@ -76,7 +75,7 @@ endif
 
 set laststatus=2
 
-augroup cofiggroup
+augroup configgroup
   " " Uglify trailing whitespace
   autocmd Syntax * syn match ExtraWhitespace /\s\+$| \+\ze\t/
   highlight ExtraWhitespace ctermbg=red guibg=red
@@ -119,12 +118,6 @@ inoremap <C-Tab> <C-x><C-o>
 " Undotree
 nnoremap <Leader>u :UndotreeToggle<CR>
 
-" RSpec integration
-nnoremap <Leader>sa :call RunAllSpecs()<CR>
-nnoremap <Leader>sf :call RunCurrentSpecFile()<CR>
-nnoremap <Leader>sl :call RunLastSpec()<CR>
-nnoremap <Leader>ss :call RunNearestSpec()<CR>
-
 " System clipboard copy/paste
 vnoremap <Leader>c "+y
 nnoremap <Leader>v "+gP
@@ -138,9 +131,6 @@ if has("gui_running")
 else
   nnoremap <Leader>S :source $MYVIMRC<CR>
 endif
-
-" vim-rspec
-let g:rspec_command = "Dispatch bundle exec rspec {spec}"
 
 " vim-racer
 let g:racer_cmd = $HOME . "/bin/racer"
