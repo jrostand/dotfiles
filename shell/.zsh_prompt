@@ -1,0 +1,59 @@
+if [[ ! -e $HOME/.zsh_opt.d/ ]]; then
+  mkdir $HOME/.zsh_opt.d
+fi
+
+PS1PLUGINS=()
+
+for file in $(find $HOME/.zsh_opt.d -maxdepth 1 -type f -iname '*.zsh'); do
+  PS1PLUGINS+=("${${file%.zsh}##*/}")
+  export PS1PLUGINS
+  source "${file}"
+done
+
+ps1opt() {
+  target="$1"
+
+  for opt in ${=PROMPT_OPTS[@]}; do
+    if [[ $target = $opt ]]; then
+      return 0
+    fi
+  done
+
+  return 1
+}
+
+ps1opts() {
+  if [[ ${=#PROMPT_OPTS[@]} = 0 ]]; then
+    echo "No plugins enabled"
+  else
+    echo "${PROMPT_OPTS[@]}" | sort
+  fi
+}
+
+ps1toggle() {
+  target="$1"
+
+  if grep -q "^${target}$" $HOME/.zsh_opts; then
+    sed -i "/${target}/d" $HOME/.zsh_opts
+  else
+    echo "${target}" >> $HOME/.zsh_opts
+  fi
+
+  export PROMPT_OPTS=$(cat $HOME/.zsh_opts)
+  return 0
+}
+
+_ps1plugin() {
+  target="$1"
+
+  if which "_${target}_prompt" >/dev/null; then
+    _${target}_prompt
+  else
+    return 1
+  fi
+}
+
+export RPROMPT='$(_ps1plugin box)$(_ps1plugin k8s)$(_ps1plugin retval)'
+
+export PROMPT='%F{green}%n%f@%F{magenta}%m%f :: %F{cyan}%~%f $(_ps1plugin git)
+%(!. .)> '

@@ -1,27 +1,31 @@
 alias ..='cd ..'
 alias grep='grep --color=auto'
 
-if [[ $(uname) = 'Darwin' ]]; then
-  alias ls='gls --color=auto'
-else
-  alias ls='ls --color=auto'
-
-  alias ifconfig=echo 'I think you meant ip'
-fi
-
-alias docker='sudo docker'
-alias exeunt='killall tmux'
 alias ll='ls -lh'
 alias qq='exit'
 alias resource='source ~/.bashrc'
-alias tunnel='ngrok start'
 
 if [[ $(which nvim) ]]; then
   alias vi='nvim'
 
-  alias gvim=echo "Not with nvim, you don't"
+  gvim() {
+    echo 'Nope, not with nvim'
+  }
 else
   alias vi='vim'
+fi
+
+# Mac vs not-Mac
+
+if [[ $(uname) = 'Darwin' ]]; then
+  alias ls='gls --color=auto'
+else
+  alias docker='sudo docker'
+  alias ls='ls --color=auto'
+
+  ifconfig() {
+    echo 'I think you meant ip'
+  }
 fi
 
 # Git
@@ -31,7 +35,6 @@ alias ga='git add'
 alias gaa='git add .'
 alias gb='git branch'
 alias gc='git commit'
-alias gclean="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 alias gco='git checkout'
 alias gd='git diff'
 alias gds='git diff --staged'
@@ -48,10 +51,3 @@ alias stash='git stash'
 
 alias be='bundle exec'
 alias bip='bundle install --path vendor/bundle -j4'
-
-# Misc
-
-redis() {
-  [[ ! -f $(which redis-cli) ]] && echo "Redis not installed!" && return 1
-  redis-cli $*
-}

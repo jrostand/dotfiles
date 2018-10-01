@@ -28,7 +28,9 @@ Plug 'mbbill/undotree'
 
 Plug 'tpope/vim-bundler'
 
-Plug 'tpope/vim-rails', { 'for': 'ruby' }
+Plug 'tpope/vim-rails'
+
+Plug 'posva/vim-vue', { 'for': 'vue' }
 
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 

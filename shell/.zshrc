@@ -19,6 +19,14 @@ setopt hist_save_no_dups
 setopt no_hist_beep
 setopt share_history
 
+# Prompt options
+if [[ -e $HOME/.zsh_opts ]]; then
+  export PROMPT_OPTS=$(cat $HOME/.zsh_opts)
+else
+  touch $HOME/.zsh_opts
+  export PROMPT_OPTS=()
+fi
+
 # EDITOR
 if [[ $(which nvim) ]]; then
   export EDITOR=$(which nvim)

@@ -6,6 +6,7 @@
 #define base05 #d8d8d8
 #define base06 #e8e8e8
 #define base07 #f8f8f8
+
 #define base08 #ab4642
 #define base09 #dc9656
 #define base0A #f7ca88
@@ -15,25 +16,43 @@
 #define base0E #ba8baf
 #define base0F #a16946
 
+#define red #ab4642
+#define orange #dc9656
+#define yellow #f7ca88
+#define green #a1b56c
+#define cyan #86c1b9
+#define blue #7cafc2
+#define purple #ba8baf
+#define brown #a16946
+
+#define rofibg argb:dd181818
+#define none argb:00000000
+
 ! Rofi
 rofi.lines: 5
 rofi.modi: window,run
+rofi.bw: 0
+rofi.eh: 1
 
 !! Theme
-rofi.bw: 0
 rofi.color-enabled: true
-rofi.font: Hack Bold 11
+rofi.font: Hack Nerd Font 18
 rofi.hide-scrollbar: true
+rofi.separator-style: solid
+
+rofi.columns: 1
+rofi.width: 100
+rofi.padding: 500
 
 !! Colors           bg       fg       bgalt    hlbg     hlfg
-rofi.color-normal:  base01,  base05,  base02,  base05,  base01
-rofi.color-active:  base01,  base0D,  base02,  base0D,  base01
-rofi.color-urgent:  base01,  base08,  base02,  base08,  base01
+rofi.color-normal:  none,    base05,  none,    none,    green
+rofi.color-active:  none,    blue,    none,    blue,    base00
+rofi.color-urgent:  none,    red,     none,    red,     base00
 
-!! Rofi window      bg       border
-rofi.color-window:  base00,  base00
+!! Rofi window      bg       border   sep
+rofi.color-window:  rofibg,  none,  base07
 
-*.faceName: Hack Regular:size=11
+*.faceName: Hack Nerd Font Regular:size=11
 *.termName: xterm-256color
 
 *.foreground:   base05
