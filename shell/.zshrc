@@ -38,8 +38,10 @@ fi
 export PATH="$HOME/bin:$PATH"
 
 # Miscellaneous variables
-export ANSIBLE_NOCOWS=1
 export XDG_CONFIG_HOME="$HOME/.config"
+
+# ssh-add
+ssh-add 2> /dev/null
 
 # dircolors
 if [[ $(uname) = 'Darwin' ]]; then
@@ -55,18 +57,18 @@ if [[ $(which go) ]]; then
 fi
 
 # nvm
-if [ -d ~/.nvm ]; then
+if [ -d ${HOME}/.nvm ]; then
   export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 fi
 
 # racer
-if [[ -d ~/.racer ]]; then
+if [[ -d ${HOME}/.racer ]]; then
   export RUST_SRC_PATH="$HOME/.racer/rustsrc"
 fi
 
 # rbenv
-if [ -d ~/.rbenv ]; then
+if [ -d ${HOME}/.rbenv ]; then
   export PATH="$HOME/.rbenv/bin:$PATH"
   eval "$(rbenv init -)"
 fi
@@ -75,6 +77,3 @@ fi
 if [[ $(which rustc) ]]; then
   export PATH="$HOME/.cargo/bin:$PATH"
 fi
-
-# ssh-add
-ssh-add 2> /dev/null
