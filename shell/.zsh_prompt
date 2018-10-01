@@ -4,7 +4,7 @@ fi
 
 PS1PLUGINS=()
 
-for file in $(find $HOME/.zsh_opt.d -maxdepth 1 -type f -iname '*.zsh'); do
+for file in $(find -L $HOME/.zsh_opt.d -maxdepth 1 -type f -iname '*.zsh'); do
   PS1PLUGINS+=("${${file%.zsh}##*/}")
   export PS1PLUGINS
   source "${file}"

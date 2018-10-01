@@ -1,0 +1,4 @@
+#compdef ps1toggle
+local -a plugins
+plugins=($(find -L $HOME/.zsh_opt.d -maxdepth 1 -type f -iname '*.zsh' | sed 's;.*\.d/\(.*\)\.zsh$;\1;g' | xargs))
+_describe 'ps1toggle' plugins
