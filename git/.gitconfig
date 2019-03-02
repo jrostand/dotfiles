@@ -7,7 +7,7 @@
   status = auto
 
 [core]
-  editor = /usr/bin/vim
+  editor = /usr/bin/nvim
   excludesfile = ~/.gitignore_global
 
 [credential]
@@ -27,4 +27,4 @@
 
 [user]
   name = Julienne Rostand
-  email = jrostand@users.noreply.github.com
+  email = git@jrr.io
