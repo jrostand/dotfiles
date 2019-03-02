@@ -1,0 +1,145 @@
+[colors]
+black = #181818
+red = #ab4642
+orange = #dc9656
+yellow = #f7ca88
+green = #a1b56c
+cyan = #86c1b9
+blue = #7cafc2
+purple = #ba8baf
+white = #e8e8e8
+
+personal-orange = #fc7753
+personal-purple = #a461e8
+personal-blue = #7ebce6
+personal-green = #23d0b1
+personal-grey = #d5dce5
+
+bg = ${colors.black}
+fg = ${colors.personal-grey}
+
+[bar/center]
+monitor = DP-0
+fixed-center = true
+height = 30
+padding = 1
+module-margin = 1
+font-0 = "Hack Nerd Font:pixelsize=12:weight=bold;0"
+background = ${colors.bg}
+foreground = ${colors.fg}
+modules-left = i3center
+modules-right = localdate localtime utctime
+
+[bar/left]
+monitor = DP-2
+fixed-center = true
+height = 30
+padding = 1
+module-margin = 1
+font-0 = "Hack Nerd Font:pixelsize=12:weight=bold;0"
+background = ${colors.bg}
+foreground = ${colors.fg}
+modules-left = i3left
+modules-center = nowplaying
+modules-right = volume
+
+[bar/right]
+monitor = DP-4
+fixed-center = true
+height = 30
+padding = 1
+module-margin = 1
+font-0 = "Hack Nerd Font:pixelsize=12:weight=bold;0"
+background = ${colors.bg}
+foreground = ${colors.fg}
+modules-left = i3right
+modules-right = pamac network
+
+[module/i3left]
+type = internal/i3
+pin-workspaces = true
+index-sort = true
+label-focused-foreground = ${colors.personal-purple}
+label-focused = %name%
+label-unfocused = %name%
+label-urgent-foreground = ${colors.personal-orange}
+label-urgent = %name%
+label-visible = %name%
+label-visible-foreground = ${colors.personal-blue}
+label-separator = " "
+
+[module/i3center]
+type = internal/i3
+pin-workspaces = true
+index-sort = true
+label-focused-foreground = ${colors.personal-purple}
+label-focused = %name%
+label-unfocused = %name%
+label-urgent-foreground = ${colors.personal-orange}
+label-urgent = %name%
+label-visible = %name%
+label-visible-foreground = ${colors.personal-blue}
+label-separator = " "
+
+[module/i3right]
+type = internal/i3
+pin-workspaces = true
+index-sort = true
+label-focused-foreground = ${colors.personal-purple}
+label-focused = %name%
+label-unfocused = %name%
+label-urgent-foreground = ${colors.personal-orange}
+label-urgent = %name%
+label-visible = %name%
+label-visible-foreground = ${colors.personal-blue}
+label-separator = " "
+
+[module/pamac]
+type = custom/script
+interval = 3600
+exec = pamac checkupdates -q | wc -l
+format =  <label>
+click-left = pamac-manager --updates
+
+[module/nowplaying]
+type = internal/mpd
+format-stopped = "[stopped]"
+format-stopped-foreground = ${colors.personal-orange}
+format-paused-foreground = ${colors.personal-blue}
+format-playing-foreground = ${colors.personal-purple}
+
+[module/volume]
+type = internal/alsa
+format-volume = <ramp-volume> <label-volume>
+label-muted = ﱝ
+ramp-volume-0 = 奄
+ramp-volume-1 = 奔
+ramp-volume-2 = 墳
+format-muted-foreground = ${colors.personal-orange}
+
+[module/network]
+type = internal/network
+interval = 5.0
+interface = eno1
+label-connected = %ifname%
+label-disconnected = %ifname%
+format-connected-foreground = ${colors.personal-green}
+format-disconnected-foreground = ${colors.personal-orange}
+
+[module/localtime]
+type = internal/date
+interval = 1.0
+time = %Hh%M
+label = %time%
+
+[module/localdate]
+type = internal/date
+interval = 1.0
+date = %d %b
+label = %date%
+
+[module/utctime]
+type = custom/script
+interval = 5
+exec = date -u +"%Hh%MZ"
+format-foreground = ${colors.personal-purple}
