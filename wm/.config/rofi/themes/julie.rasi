@@ -38,6 +38,7 @@ listview {
 
 inputbar {
   children: [prompt, entry];
+  spacing: 8px;
 }
 
 listview {
