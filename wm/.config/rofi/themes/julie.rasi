@@ -1,0 +1,75 @@
+* {
+  font: "Hack Nerd Font 12";
+
+  /* personal color scheme */
+  black:  #181818;
+  grey:   #d5dce5;
+  orange: #fc7753;
+  purple: #a461e8;
+  blue:   #7ebce6;
+  green:  #23d0b1;
+
+  background-color: @black;
+  text-color: @grey;
+}
+
+window,
+mainbox {
+  background-color: @black;
+  transparency: "real";
+}
+
+window {
+  location: center;
+  anchor: center;
+}
+
+mainbox {
+  spacing: 15px;
+  children: [inputbar, listview, message];
+}
+
+inputbar,
+listview {
+  border: 1px solid;
+  border-color: @purple;
+  padding: 2px;
+}
+
+inputbar {
+  children: [prompt, entry];
+}
+
+listview {
+  scrollbar: false;
+}
+
+element normal.normal {
+  text-color: @grey;
+}
+
+element normal.urgent,
+element alternate.urgent {
+  text-color: @orange;
+}
+
+element normal.active,
+element alternate.active {
+  text-color: @blue;
+}
+
+element selected.normal {
+  text-color: @green;
+}
+
+element selected.active {
+  background-color: @blue;
+  text-color: @black;
+}
+
+element selected.urgent {
+  background-color: @orange;
+  text-color: @black;
+}
+
+/* vim: set ft=css: */
