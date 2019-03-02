@@ -15,7 +15,7 @@
 
 window,
 mainbox {
-  background-color: @black;
+  background-color: #00000000;
   transparency: "real";
 }
 
