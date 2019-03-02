@@ -24,6 +24,8 @@ Plug 'garbas/vim-snipmate'
 
 Plug 'mbbill/undotree'
 
+Plug 'neoclide/coc.nvim', { 'tag': '*', 'do': { -> coc#util#install() } }
+
 " Syntax etc
 
 Plug 'tpope/vim-bundler'
