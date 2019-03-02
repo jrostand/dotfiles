@@ -39,9 +39,15 @@ export PATH="$HOME/bin:$PATH"
 
 # Miscellaneous variables
 export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_DATA_DIRS="$XDG_DATA_HOME:/usr/local/share:/usr/share"
 
 # ssh-add
 ssh-add 2> /dev/null
+
+function __exists() {
+  builtin type $1 >/dev/null 2>&1
+}
 
 # dircolors
 if [[ $(uname) = 'Darwin' ]]; then
@@ -51,7 +57,7 @@ else
 fi
 
 # golang
-if [[ $(which go) ]]; then
+if __exists go; then
   export GOPATH="$HOME/go"
   export PATH="$PATH:/usr/local/go/bin:$GOPATH/bin"
 fi
@@ -74,6 +80,11 @@ if [ -d ${HOME}/.rbenv ]; then
 fi
 
 # rust
-if [[ $(which rustc) ]]; then
+if __exists rustc; then
   export PATH="$HOME/.cargo/bin:$PATH"
+fi
+
+# fzf
+if __exists fzf; then
+  source /usr/share/fzf/key-bindings.zsh
 fi

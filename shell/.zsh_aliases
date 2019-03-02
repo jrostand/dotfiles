@@ -54,5 +54,5 @@ alias bip='bundle install --path vendor/bundle -j4'
 
 # YTDL
 
-alias ytdla='youtube-dl -o "/media/Archive/Inbound Media/audio/%(title)s.%(ext)s" --no-call-home -x --audio-format vorbis --audio-quality 7'
-alias ytdlv='youtube-dl -o "/media/Archive/Inbound Media/video/%(title)s.%(ext)s" --no-call-home'
+alias ytdla="youtube-dl -o \"$HOME/inbound/audio/%(title)s.%(ext)s\" --no-call-home -x --audio-format vorbis --audio-quality 7"
+alias ytdlv="youtube-dl -o \"$HOME/inbound/video/%(title)s.%(ext)s\" --no-call-home"

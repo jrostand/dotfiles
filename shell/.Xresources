@@ -25,32 +25,11 @@
 #define purple #ba8baf
 #define brown #a16946
 
-#define rofibg argb:dd181818
-#define none argb:00000000
-
-! Rofi
-rofi.lines: 5
-rofi.modi: window,run
-rofi.bw: 0
-rofi.eh: 1
-
-!! Theme
-rofi.color-enabled: true
-rofi.font: Hack Nerd Font 18
-rofi.hide-scrollbar: true
-rofi.separator-style: solid
-
-rofi.columns: 1
-rofi.width: 100
-rofi.padding: 500
-
-!! Colors           bg       fg       bgalt    hlbg     hlfg
-rofi.color-normal:  none,    base05,  none,    none,    green
-rofi.color-active:  none,    blue,    none,    blue,    base00
-rofi.color-urgent:  none,    red,     none,    red,     base00
-
-!! Rofi window      bg       border   sep
-rofi.color-window:  rofibg,  none,  base07
+#define personal_orange #fc7753
+#define personal_purple #a461e8
+#define personal_blue #7ebce6
+#define personal_green #23d0b1
+#define personal_grey #d5dce5
 
 *.faceName: Hack Nerd Font Regular:size=11
 *.termName: xterm-256color
