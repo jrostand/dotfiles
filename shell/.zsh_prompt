@@ -55,5 +55,5 @@ _ps1plugin() {
 
 export RPROMPT='$(_ps1plugin box)$(_ps1plugin k8s)$(_ps1plugin retval)'
 
-export PROMPT='%F{green}%n%f@%F{magenta}%m%f :: %F{cyan}%~%f $(_ps1plugin git)
+export PROMPT='%F{green}%n%f@%F{magenta}%m%f :: %F{cyan}$(_ps1plugin shrinkcwd)%f $(_ps1plugin git)
 %(!. .)> '
