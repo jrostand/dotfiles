@@ -188,6 +188,7 @@ exec --no-startup-id polybar -r center
 exec --no-startup-id polybar -r left
 exec --no-startup-id polybar -r right
 exec --no-startup-id NetworkManager
+exec --no-startup-id compton
 exec --no-startup-id redshift-gtk
 exec --no-startup-id mpd-notification
 exec --no-startup-id dropbox
