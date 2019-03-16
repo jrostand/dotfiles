@@ -1,0 +1,13 @@
+#!/bin/bash
+
+case $1 in
+  'next')
+    playerctl next || mpc next;;
+  'prev')
+    playerctl previous || mpc prev;;
+  'playpause')
+    playerctl play-pause || mpc toggle;;
+  'stop')
+    playerctl stop || mpc stop;;
+  *) break;;
+esac >/dev/null 2>&1
