@@ -8,16 +8,15 @@ autoload -U compinit && compinit
 setopt prompt_subst
 
 # Shell history
-export HISTFILE=~/.zsh_history
-export SAVEHIST=1000
-export HISTSIZE=1000
+HISTFILE=~/.zsh_history
+SAVEHIST=10000
+HISTSIZE=10000
 setopt inc_append_history
 setopt hist_no_functions
 setopt hist_no_store
 setopt hist_reduce_blanks
-setopt hist_save_no_dups
+setopt hist_ignore_dups
 setopt no_hist_beep
-setopt share_history
 
 # Prompt options
 if [[ -e $HOME/.zsh_opts ]]; then
