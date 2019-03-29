@@ -8,9 +8,9 @@ autoload -U compinit && compinit
 setopt prompt_subst
 
 # Shell history
-HISTFILE=~/.zsh_history
-SAVEHIST=10000
-HISTSIZE=10000
+export HISTFILE=~/.zsh_history
+export SAVEHIST=10000
+export HISTSIZE=10000
 setopt inc_append_history
 setopt hist_no_functions
 setopt hist_no_store

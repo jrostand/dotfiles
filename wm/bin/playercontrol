@@ -1,13 +1,43 @@
 #!/bin/bash
 
+cmd=mpc
+
+if [[ $(mpc status) =~ "volume: n/a" ]]; then
+  cmd=playerctl
+fi
+
+__next() {
+  $cmd next
+}
+
+__prev() {
+  if [[ ${cmd} == 'mpc' ]]; then
+    mpc prev
+    break
+  fi
+  playerctl previous
+}
+
+__toggle() {
+  if [[ ${cmd} == 'mpc' ]]; then
+    mpc toggle
+    break
+  fi
+  playerctl play-pause
+}
+
+__stop() {
+  $cmd stop
+}
+
 case $1 in
   'next')
-    playerctl next || mpc next;;
+    __next;;
   'prev')
-    playerctl previous || mpc prev;;
+    __prev;;
   'playpause')
-    playerctl play-pause || mpc toggle;;
+    __toggle;;
   'stop')
-    playerctl stop || mpc stop;;
+    __stop;;
   *) break;;
 esac >/dev/null 2>&1
