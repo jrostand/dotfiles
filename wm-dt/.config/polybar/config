@@ -102,11 +102,14 @@ format =  <label>
 click-left = pamac-manager --updates
 
 [module/nowplaying]
-type = internal/mpd
-format-stopped = "[stopped]"
-format-stopped-foreground = ${colors.personal-orange}
-format-paused-foreground = ${colors.personal-blue}
-format-playing-foreground = ${colors.personal-purple}
+type = custom/script
+interval = 1
+exec = $HOME/bin/nowplaying
+# type = internal/mpd
+# format-stopped = "[stopped]"
+# format-stopped-foreground = ${colors.personal-orange}
+# format-paused-foreground = ${colors.personal-blue}
+# format-playing-foreground = ${colors.personal-purple}
 
 [module/volume]
 type = internal/alsa

@@ -14,7 +14,7 @@
 	helper = cache --timeout 604800
 
 [help]
-  autocorrect = 1
+	autocorrect = 0
 
 [merge]
   tool = vimdiff

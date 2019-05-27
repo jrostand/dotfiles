@@ -172,8 +172,6 @@ client.focused          $personal_purple #181818 $personal_grey $personal_blue  
 client.focused_inactive $personal_blue   #181818 $personal_grey $personal_green $personal_blue
 client.urgent           $personal_orange #181818 $personal_grey $personal_blue  $personal_orange
 
-workspace_auto_back_and_forth yes
-
 # Media keys
 bindsym XF86AudioNext exec ~/bin/playercontrol next
 bindsym XF86AudioPrev exec ~/bin/playercontrol prev

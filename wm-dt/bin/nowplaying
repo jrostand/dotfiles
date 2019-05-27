@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+bug=""
+media=""
+player=""
+
+color_playing="#A461E8"
+color_paused="#7EBCE6"
+
+color=$color_playing
+
+if [[ $(playerctl status 2>/dev/null) ]]; then
+  player="dbus"
+  bug="阮"
+elif [[ "$(mpc cur -q)" ]]; then
+  player="mpc"
+  bug=""
+fi
+
+if [[ -z "${player}" ]]; then
+  echo '%{F#FC7753}[stopped]'
+  exit 0
+fi
+
+if [[ "${player}" = "mpc" ]]; then
+  media="$(mpc cur -q)"
+
+  if [[ "$(mpc status)" =~ "[paused]" ]]; then color=$color_paused;  fi
+else
+  media="$(playerctl metadata artist) - $(playerctl metadata title)"
+
+  if [[ "$(playerctl status)" =~ "Paused" ]]; then color=$color_paused;  fi
+fi
+
+echo "%{F${color}}${bug} ${media}"
